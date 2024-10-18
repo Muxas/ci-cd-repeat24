@@ -4,7 +4,7 @@ on:
 jobs:
     idle:
         name: Idle job doing only prints
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
             -
                 name: checkout
