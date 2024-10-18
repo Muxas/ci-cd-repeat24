@@ -1,0 +1,12 @@
+name: Docker image runner
+on:
+    push
+jobs:
+    idle:
+        name: Idle job doing only prints
+        runs-on: ubuntu-latest
+        steps:
+            -
+                name: docker run
+                run: |
+                    docker run --rm -t cicd24
