@@ -1,12 +1,25 @@
-name: Docker image runner
+name: Docker image builder and runner
 on:
     push
 jobs:
-    idle:
+    build:
         name: Idle job doing only prints
         runs-on: ubuntu-latest
+        steps:
+            -
+                name: checkout
+                uses: actions/checkout@v4
+            -
+                name: docker build
+                run: |
+                    docker build -t cicd24 .
+                    
+    runjob:
+        name: Run docker image
+        needs: build
         steps:
             -
                 name: docker run
                 run: |
                     docker run --rm -t cicd24
+    
