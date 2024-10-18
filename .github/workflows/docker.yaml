@@ -1,0 +1,15 @@
+name: Docker build
+on:
+    push
+jobs:
+    idle:
+        name: Idle job doing only prints
+        runs-on: ubuntu-latest
+        steps:
+            -
+                name: checkout
+                uses: actions/checkout@v4
+            -
+                name: docker build
+                run: |
+                    docker build -t cicd24 .
